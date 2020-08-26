@@ -2,7 +2,7 @@
   <div class="content">
     <button class="add-to-cart" @click="addToCart()">Add to Cart</button>
     <div class="top-row">
-      <div class="top part">
+      <div :class="[saleBorderClass, 'top', 'part']">
         <div class="robot-name">
           {{selectedRobot.head.title}}
           <span v-if="selectedRobot.head.onSale" class="sale">Sale!</span>
@@ -58,6 +58,7 @@
 
 <script>
 import availableParts from '../data/parts';
+import createdHookMixin from './created-hook-mixin';
 
 function getPreviousValidIndex(index, length) {
   const deprecatedIndex = index - 1;
@@ -82,6 +83,7 @@ export default {
       selectedBaseIndex: 0,
     };
   },
+  mixins: [createdHookMixin],
   computed: {
     selectedRobot() {
       return {
@@ -90,6 +92,14 @@ export default {
         rightArm: availableParts.arms[this.selectedRightArmIndex],
         torso: availableParts.torsos[this.selectedTorsoIndex],
         base: availableParts.bases[this.selectedBaseIndex],
+      };
+    },
+    saleBorderClass() {
+      return this.selectedRobot.head.onSale ? 'sale-border' : '';
+    },
+    headBorderStyle() {
+      return {
+        border: this.selectedRobot.head.onSale ? '3px solid red' : '3px solid gray',
       };
     },
   },
@@ -147,7 +157,7 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss" scoped>
 .part {
   position: relative;
   width:165px;
@@ -263,5 +273,8 @@ td, th{
 }
 .cost{
   text-align: right;
+}
+.sale-border {
+  border: 3px solid red;
 }
 </style>
