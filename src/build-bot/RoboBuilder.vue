@@ -6,16 +6,16 @@
 <!--          {{selectedRobot.head.title}}-->
 <!--          <span v-if="selectedRobot.head.onSale" class="sale">Sale!</span>-->
 <!--        </div>-->
-      <PartSelector></PartSelector>
+      <PartSelector :parts="availableParts.heads"></PartSelector>
     </div>
     <div class="middle-row">
-      <PartSelector></PartSelector>
-      <PartSelector></PartSelector>
-      <PartSelector></PartSelector>
+      <PartSelector :parts="availableParts.arms"></PartSelector>
+      <PartSelector :parts="availableParts.torsos"></PartSelector>
+      <PartSelector :parts="availableParts.arms"></PartSelector>
 
     </div>
     <div class="bottom-row">
-      <PartSelector></PartSelector>
+      <PartSelector :part="availableParts.bases"></PartSelector>
     </div>
     <div>
       <h1>Cart</h1>
