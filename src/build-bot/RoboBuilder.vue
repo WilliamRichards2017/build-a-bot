@@ -8,23 +8,33 @@
 <!--        </div>-->
       <PartSelector
         :parts="availableParts.heads"
-        position="top">
+        position="top"
+        @partSelected="part => selectedRobot.head=part">
       </PartSelector>
     </div>
     <div class="middle-row">
       <PartSelector
         :parts="availableParts.arms"
-        position="left"></PartSelector>
+        position="left"
+        @partSelected="part => selectedRobot.leftArm= part ">
+        ></PartSelector>
       <PartSelector
         :parts="availableParts.torsos"
-        position="center"></PartSelector>
+        position="center"
+        @partSelected="part => selectedRobot.torso=part">
+        ></PartSelector>
       <PartSelector
         :parts="availableParts.arms"
-        position="right" ></PartSelector>
+        position="right"
+        @partSelected="part => selectedRobot.rightArm=part">
+        ></PartSelector>
 
     </div>
     <div class="bottom-row">
-      <PartSelector position="bottom" :parts="availableParts.bases"></PartSelector>
+      <PartSelector position="bottom"
+                    :parts="availableParts.bases"
+                    @partSelected="part => selectedRobot.base=part">
+        ></PartSelector>
     </div>
     <div>
       <h1>Cart</h1>
@@ -81,6 +91,7 @@ export default {
   methods: {
     addToCart() {
       const robot = this.selectedRobot;
+      console.log('robot', this.selectedRobot);
       const cost = robot.head.cost
         + robot.leftArm.cost
         + robot.rightArm.cost
