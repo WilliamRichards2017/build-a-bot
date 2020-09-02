@@ -5,6 +5,7 @@
        <span v-if="!open" @click="open = !open"> &#x25B2;Expand</span>
      </div>
      <slot v-if="open">
+       <div>No robot to preview</div>
      </slot>
    </div>
  </template>
