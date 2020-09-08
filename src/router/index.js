@@ -4,6 +4,11 @@ import Router from 'vue-router';
 import HomePage from '@/home/HomePage.vue';
 import RoboBuilder from '@/build-bot/RoboBuilder.vue';
 import PartInfo from '@/parts/PartInfo.vue';
+import BrowseParts from '@/parts/BrowseParts.vue';
+import RobotHeads from '@/parts/RobotHeads.vue';
+import RobotBases from '@/parts/RobotBases.vue';
+import RobotArms from '@/parts/RobotArms.vue';
+import RobotTorsos from '@/parts/RobotTorsos.vue';
 
 Vue.use(Router);
 
@@ -16,6 +21,32 @@ export default new Router({
     path: '/build',
     name: 'Build',
     component: RoboBuilder,
+  }, {
+    path: '/parts/browse/',
+    name: 'BrowseParts',
+    component: BrowseParts,
+    children: [
+      {
+        name: 'BrowseHeads',
+        path: 'heads',
+        component: RobotHeads,
+      },
+      {
+        name: 'BrowseArms',
+        path: 'arms',
+        component: RobotArms,
+      },
+      {
+        name: 'BrowseBases',
+        path: 'bases',
+        component: RobotBases,
+      },
+      {
+        name: 'BrowseTorsos',
+        path: 'torsos',
+        component: RobotTorsos,
+      },
+    ],
   }, {
     path: '/parts/:partType/:id',
     name: 'Parts',
