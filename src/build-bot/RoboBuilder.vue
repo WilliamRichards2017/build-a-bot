@@ -1,5 +1,5 @@
 <template>
-  <div v-if="availableParts" class="content">
+  <div class="content">
     <div class="preview">
       <CollapsibleSection>
       <div class="preview-content">
