@@ -1,15 +1,13 @@
 import axios from 'axios';
 
 export default {
-  state: {
-    user: null,
-  },
   mutations: {
     updateCurrentUser(state, user) {
       state.user = user;
     },
   },
   getters: {
+
   },
   actions: {
     signIn({ commit }) {

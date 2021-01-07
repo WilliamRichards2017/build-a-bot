@@ -38,14 +38,12 @@
 </template>
 
 <script>
-// import HomePage from './home/HomePage.vue';
+import { mapState } from 'vuex';
 
 export default {
   name: 'App',
   computed: {
-    cart() {
-      return this.$store.state.robots.cart;
-    },
+    ...mapState('robots', { cart: 'cart' }),
   },
   components: {
   },
