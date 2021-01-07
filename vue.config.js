@@ -2,9 +2,10 @@ module.exports = {
   devServer: {
     proxy: {
       '/api': {
-        target: 'http://localhost:8081',
+        target: 'https://williamrichards2017.github.io/build-a-bot-server/',
         changeOrigin: true,
       }
     }
-  }
+  },
+  publicPath: '/build-a-bot',
 }
